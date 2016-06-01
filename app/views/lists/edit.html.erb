@@ -1,2 +1,14 @@
-<h1>Lists#edit</h1>
-<p>Find me in app/views/lists/edit.html.erb</p>
+<h1>Add List</h1>
+
+<%= form_for @list do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :category %>
+  <%= f.text_field :category %>
+
+  <%= f.submit %>
+<% end %>
