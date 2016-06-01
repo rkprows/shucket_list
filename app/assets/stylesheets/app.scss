@@ -1,0 +1,23 @@
+.flash {
+	width: 50%;
+	margin: 0 auto;
+	border-radius: 4px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.flash.alert {
+	background-color: red;
+	color: white;
+	text-transform: uppercase;
+}
+
+.flash.success {
+	background-color: green;
+	color: white;
+}
+
+.flash.notice {
+	background-color: blue;
+	color: white;
+}
