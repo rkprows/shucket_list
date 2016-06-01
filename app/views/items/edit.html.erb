@@ -1,2 +1,6 @@
-<h1>Items#edit</h1>
-<p>Find me in app/views/items/edit.html.erb</p>
+<h1>Edit Item</h1>
+
+<%= render(partial: 'form') %>
+
+<%= f.label :complete %>
+ <%= f.checkbox :complete %>
