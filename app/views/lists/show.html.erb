@@ -1,2 +1,8 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<h1>List</h1>
+<p><%= list.title %></p>
+<p><%= list.description %></p>
+<p><%= list.category %></p>
+
+
+<%= link_to 'All Lists', lists_show_path %>
+<%= link_to 'Add list', lists_new_path %>
