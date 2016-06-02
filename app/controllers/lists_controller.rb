@@ -19,7 +19,7 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.new(list_params)
     if @list.save
-      flash[:success] = "List with name #{@list.name} created"
+      flash[:success] = "List with name #{@list.title} created"
       redirect_to lists_path(@list)
     else
       render :new
