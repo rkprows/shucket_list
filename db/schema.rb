@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160601221041) do
     t.string   "name"
     t.string   "description"
     t.boolean  "complete"
+    t.integer  "list_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160601221041) do
     t.string   "title"
     t.string   "description"
     t.string   "category"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

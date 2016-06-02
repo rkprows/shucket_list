@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
-  resources :lists
-  resources :items
-
+  resources :lists do
+    resources :items
+  end
 end

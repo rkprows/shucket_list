@@ -1,8 +1,18 @@
 <h1>List</h1>
-<p><%= list.title %></p>
-<p><%= list.description %></p>
-<p><%= list.category %></p>
+<p><%= @list.title %></p>
+<p><%= @list.description %></p>
+<p><%= @list.category %></p>
 
+<% if @list.items.any? %>
+  <% @list.items.each do |item| %>
+    <ul>
+     <li><%= link_to item.name, list_item_path(@list, item) %></li>
+   </ul>
+  <% end %>
+<% else %>
+  <h3>No items on this list please add one!</h3>
+  <%= link_to 'Add item', new_list_item_path(@list) %>
+<% end %>
 
-<%= link_to 'All Lists', lists_show_path %>
-<%= link_to 'Add list', lists_new_path %>
+<%= link_to 'All Lists', lists_path %>
+<%= link_to 'Add list', new_list_path %>

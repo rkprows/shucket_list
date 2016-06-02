@@ -1,11 +1,11 @@
-<h1><%= list.name %> items: </h1>
+<h1><%= @list.title %> items: </h1>
 <hr />
 
 <% if @items.any? %>
 	<ul>
 		<% @items.each do |item| %>
 			<li>
-				<%= link_to item.name, item_path(item) %>
+				<%= link_to item.name, list_item_path(@list, item) %>
 			</li>
 			<% end %>
 	</ul>
@@ -14,5 +14,5 @@
 <% end %>
 
 <hr />
-<%= link_to 'Add Item', new_item_path %>
+<%= link_to 'Add Item', new_list_item_path %>
 <%= link_to 'All Shucket Lists', lists_path %>

@@ -1,20 +1,23 @@
 class ItemsController < ApplicationController
-	before_action :item, except: [:index, :new, :create]
+  before_action :item, except: [:index, :new, :create]
+  before_action :list, only: [:show]
   def index
-  	@items = current_list.items
+  	@items = list.items
   end
 
   def show
   end
   
   def new
+    @list = List.find(params[:list_id])
   	@item = Item.new
   end
 
   def create
-  	@item = current_list.items.new(item_params)
+    @list = List.find(params[:list_id])
+  	@item = @list.items.new(item_params)
   	if @item.save
-  		redirect_to item_path(@item)
+  		redirect_to list_item_path(@list, @item)
   	else
   		render :new
   	end
@@ -25,7 +28,7 @@ class ItemsController < ApplicationController
 
   def update
   	if @item.update(item_params)
-  		redirect_to item_path(@item)
+  		redirect_to list_item_path(@list, @item)
   	else
   		render :edit
   	end
@@ -33,7 +36,7 @@ class ItemsController < ApplicationController
 
   def destroy
   	@item.destroy
-  	redirect_to items_path
+  	redirect_to list_items_path
   end
 
 private
@@ -42,7 +45,11 @@ private
 	end
 
 	def item
-		@item = current_list.items.find(params[:id])
+		@item = list.items.find(params[:id])
 	end
+
+  def list
+    @list = List.find(params[:list_id])
+  end
 end
 

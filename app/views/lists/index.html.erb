@@ -3,7 +3,7 @@
 <% if @lists.any? %>
   <ul>
     <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list) %>
+      <li><%= link_to list.title, list_path(list) %>
       </li>
       <% end %>
   </ul>
@@ -13,4 +13,4 @@
 
 <%= link_to 'Profile', edit_user_registration_path %>
 
-<%= link_to 'Add List', lists_new_path %>
+<%= link_to 'Add List', new_list_path %>
