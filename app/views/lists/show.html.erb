@@ -6,7 +6,10 @@
 <% if @list.items.any? %>
   <% @list.items.each do |item| %>
     <ul>
-     <li><%= link_to item.name, list_item_path(@list, item) %></li>
+     <li>
+     	<%= link_to item.name, list_item_path(@list, item) %><br>
+     	<%= image_tag item.image.url(:medium) %>
+     </li>
    </ul>
   <% end %>
 <% else %>

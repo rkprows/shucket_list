@@ -3,6 +3,9 @@
 <h3>Description: <%=@item.description %></h3>
 <h3>Completed: <%= @item.complete ? "yes" : "no" %></h3>
 
+<%= image_tag @item.image.url(:medium) %>
+
+
 <hr />
 <%= link_to 'Back to All Items', list_path(@list) %>
 
