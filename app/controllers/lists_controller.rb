@@ -19,7 +19,7 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.new(list_params)
     if @list.save
-      flash[:success] = "List with name #{@list.name} created"
+      flash[:success] = "List with title #{@list.title} created"
       redirect_to lists_path(@list)
     else
       render :new
@@ -30,9 +30,8 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    @list = current.user.list.find(params[:id])
     @list.destroy
-      redirect to lists_path
+      redirect_to lists_path
   end
 
   private
