@@ -1,12 +1,15 @@
 <h1>List</h1>
-<p><%= @list.title %></p>
-<p><%= @list.description %></p>
-<p><%= @list.category %></p>
+<p>Title: <%= @list.title %></p>
+<p>Description: <%= @list.description %></p>
+<p>Category: <%= @list.category %></p>
 
 <% if @list.items.any? %>
   <% @list.items.each do |item| %>
     <ul>
-     <li><%= link_to item.name, list_item_path(@list, item) %></li>
+     <li>
+     	<%= link_to item.name, list_item_path(@list, item) %><br>
+     	<%= image_tag item.image.url(:medium) %>
+     </li>
    </ul>
   <% end %>
 <% else %>
@@ -14,6 +17,7 @@
   <%= link_to 'Add item', new_list_item_path(@list) %>
 <% end %>
 
+<<<<<<< HEAD
 <%= link_to 'All Lists', lists_path %>
 
 <%= link_to 'Add List', new_list_path %>
@@ -21,3 +25,9 @@
 <%= link_to 'Edit List', edit_list_path(:list_id) %>
 
 <%= link_to 'Delete List', list_path, method: :delete, data: {confirm: 'You sure you want to delete?'} %>
+=======
+
+<%= link_to 'Add Item', new_list_item_path(@list) %> |
+
+<%= link_to 'Back', lists_path %>
+>>>>>>> ede5357fc3e547361ef862443e45260ec7c060d1
