@@ -1,12 +1,14 @@
 class ListsController < ApplicationController
-  before_action :list, except: [:index, :new, :create]
+  before_action :list, except: [:index, :new, :show, :create]
 
   def index
     @lists = current_user.lists
   end
 
   def show
-    current_user.lists.find(params[:id])
+   @list = List.find(params[:id])
+   @complete = @list.items.where(complete: true)
+   @incomplete = @list.items - @complete
   end
 
   def edit
