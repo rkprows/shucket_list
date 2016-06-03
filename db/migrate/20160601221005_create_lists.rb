@@ -4,7 +4,6 @@ class CreateLists < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :category
-      t.belongs_to :user
 
       t.timestamps null: false
     end

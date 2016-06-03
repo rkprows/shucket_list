@@ -4,7 +4,6 @@ class CreateItems < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.boolean :complete
-      t.belongs_to :list
 
       t.timestamps null: false
     end

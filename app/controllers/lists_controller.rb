@@ -10,6 +10,7 @@ class ListsController < ApplicationController
   end
 
   def edit
+
   end
 
   def new
@@ -27,6 +28,11 @@ class ListsController < ApplicationController
   end
 
   def update
+    if @list.update(list_params)
+      redirect_to list_path(@list)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -37,7 +43,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title, :description, :category)
+    params.require(:list).permit(:title, :description, :category, :image)
   end
 
   def list

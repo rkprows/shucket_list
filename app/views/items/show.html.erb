@@ -7,8 +7,8 @@
 
 
 <hr />
-<%= link_to 'Back to All Items', list_path(@list) %>
+<%= link_to 'Back to All Items', list_path(@list) %> |
 
-<%= link_to 'Edit Item', edit_list_item_path(@list, @item) %>
+<%= link_to 'Edit Item', edit_list_item_path(@list, @item) %> |
 
 <%= link_to 'Delete Item', list_item_path, method: :delete, data: {confirm: 'Do you really want to delete this?'} %>
