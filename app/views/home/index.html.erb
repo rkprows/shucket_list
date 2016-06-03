@@ -2,13 +2,28 @@
 
 <hr>
 
+<div class="container">
 
-<%= link_to 'All Lists', lists_path %>
+<% if @lists.any? %>
+  <% @lists.each do |list| %>
 
-<br>
+		<div class="card col-md-4">
 
-<%= link_to 'Edit Profile', edit_user_registration_path %> 
+	  	<%= image_tag list.image.url(:medium), class: 'card-img-top' %>
+		  <div class="card-block">
 
-<br>
+		    <h4 class="card-title"><%= link_to list.title, list_path(list) %></h4>
+		    <p class="card-text"><%= link_to list.description, list_path(list) %></p>
 
-<%= link_to 'Logout', destroy_user_session_path, method: :delete, data: {confirm: 'Really Logout?'} %>
+		    <a href="#" class="btn btn-primary">View</a>
+		  </div>
+
+		</div>      
+<% end %>
+<% else %>
+  <h3>No Lists, please add one!</h3>
+<% end %>
+
+</div>
+
+<hr>
