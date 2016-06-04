@@ -3,35 +3,38 @@
 <p>Description: <%= @list.description %></p>
 <p>Category: <%= @list.category %></p>
 
-<% if @incomplete.any? %>
+
+<%if @list.items.any? %>
   <h3>Incomplete Items:</h3>
-  <% @incomplete.each do |item| %>
-    <ul>
-      <li>
-        <%= link_to item.name, list_item_path(@list, item) %><br>
-      	<%= image_tag item.image.url(:medium) %>
-      </li>
-   </ul>
-  <% end %>
+    <% if @incomplete.any? %>
+      <% @incomplete.each do |item| %>
+        <ul>
+          <li>
+            <%= link_to item.name, list_item_path(@list, item) %><br>
+          	<%= image_tag item.image.url(:medium) %>
+          </li>
+       </ul>
+      <% end %>
+    <% else %>
+      <h5>Please add something!</h5>
+    <% end %>
+
+  <h3>Completed Items:</h3>
+    <% if @complete.any? %>
+      <% @complete.each do |item| %>
+        <ul>
+          <li>
+            <%= link_to item.name, list_item_path(@list, item) %><br>
+            <%= image_tag item.image.url(:medium) %>
+          </li>
+        </ul>
+      <% end %>
+    <% else %>
+      <h5>Nothing, get out there and do something!</h5>
+    <% end %>
+
 <% else %>
   <h3>Please add something!</h3>
-  <%= link_to 'Add item', new_list_item_path(@list) %>
-<% end %>
-
-
-<% if @complete.any? %>
-  <h3>Completed Items:</h3>
-  <% @complete.each do |item| %>
-    <ul>
-      <li>
-        <%= link_to item.name, list_item_path(@list, item) %><br>
-        <%= image_tag item.image.url(:medium) %>
-      </li>
-    </ul>
-  <% end %>
-<% else %>
-  <h3>Go do something!</h3>
-  <%= link_to 'Add item', new_list_item_path(@list) %>
 <% end %>
 
 <hr>
