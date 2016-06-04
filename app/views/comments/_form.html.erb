@@ -1,0 +1,12 @@
+<%= form_for [@commentable, @comment] do |f| %>
+
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <p>
+  	<%= f.submit %>
+  </p>
+
+<% end %>
