@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: { 
         registrations: 'users/registrations'
       }
@@ -7,5 +8,7 @@ Rails.application.routes.draw do
 
   resources :lists do
     resources :items
+    resources :comments
   end
+
 end

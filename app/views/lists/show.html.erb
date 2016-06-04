@@ -39,6 +39,24 @@
 
 <hr>
 
+<h1>Comments</h1>
+
+<div>
+  <% binding.pry %>
+  <% @comments.each do |comment| %>
+    <div>
+      <%= comment.content %>
+    </div>
+  <% end %>
+</div>
+
+<%= render 'comments/form' %>
+
+
+  
+
+<hr>
+
 <%= link_to 'Add Item', new_list_item_path(@list, @item) %> |
 
 <%= link_to 'Edit List', edit_list_path(@list) %> |

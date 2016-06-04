@@ -6,13 +6,16 @@ class ListsController < ApplicationController
   end
 
   def show
-   @list = List.find(params[:id])
-   @complete = @list.items.where(complete: true)
-   @incomplete = @list.items - @complete
+    @list = List.find(params[:id])
+    @complete = @list.items.where(complete: true)
+    @incomplete = @list.items - @complete
+
+    @commentable = @list
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def edit
-
   end
 
   def new
@@ -51,4 +54,5 @@ class ListsController < ApplicationController
   def list
     @list = current_user.lists.find(params[:id])
   end
+
 end
