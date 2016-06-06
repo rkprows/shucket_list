@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   before_action :list, except: [:index, :new, :show, :create]
 
   def index
-    @lists = current_user.lists
+    @lists = current_user.lists.paginate(:page => params[:page], :per_page => 6)
   end
 
   def show
@@ -54,5 +54,4 @@ class ListsController < ApplicationController
   def list
     @list = current_user.lists.find(params[:id])
   end
-
 end
