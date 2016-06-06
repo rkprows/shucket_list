@@ -1,17 +1,4 @@
 <h1>Add List</h1>
 
-<%= form_for @list, :html => { :multipart => true } do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= render(partial: 'form') %>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.label :category %>
-  <%= f.text_field :category %>
-
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-
-  <%= f.submit %>
-<% end %>
