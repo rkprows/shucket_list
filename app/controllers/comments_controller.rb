@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
 
   def create
   	@comment = @commentable.comments.new(comment_params)
-  	# getting error where content is nil 
   	if @comment.save
   		redirect_to @commentable, notice: "Comment created."
   	else
@@ -25,7 +24,7 @@ class CommentsController < ApplicationController
 	private
 
 	def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit!
   end
 
 	def load_commentable

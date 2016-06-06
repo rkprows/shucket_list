@@ -2,6 +2,8 @@
 
 <hr>
 
+
+<div class="row">
 <% if @lists.any? %>
   <% @lists.each do |list| %>
 
@@ -23,4 +25,9 @@
   <h3>No Lists, please add one!</h3>
 <% end %>
 
+
+</div>
+
 <hr>
+
+<%= link_to 'Add List', new_list_path %>
