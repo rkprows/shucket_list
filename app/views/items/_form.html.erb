@@ -1,27 +1,19 @@
-<form>
-  <%= form_for [@list, @item], :html => { :multipart => true } do |f| %>
-    <div class="form-group">
+
+  <%= form_for [@list, @item], :class => "form-group", :html => { :multipart => true } do |f| %>
       <%= f.label :name %>
-      <%= f.text_field :name, class: "form-control", placeholder: "Item Name" %>
-    </div>
-    <hr />
-    <div class="form-group">
+      <%= f.text_field :name, class:"form-control" %>
+  
       <%= f.label :description %>
-      <%= f.text_field :description, class: "form-control", placeholder: "Describe Item" %>
-    </div>
-    <hr />
-    <div class="form-group">
+      <%= f.text_field :description, class:"form-control" %>
+
       <%= f.label :image %>
       <%= f.file_field :image %>
-    </div>
-    <hr />
+
     <% if @item.persisted? %>
-      <div class="form-group">
-        <%= f.label :complete %>
-        <%= f.check_box :complete %>
-      </div>
+      <%= f.label :complete %>
+      <%= f.check_box :complete %>
     <% end %>
   
-    <%= f.submit class: "btn btn-primary" %>
+    <%= f.submit class:"btn btn-primary" %>
   <% end %> 
-</form> 
+
