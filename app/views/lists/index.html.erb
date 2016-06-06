@@ -1,41 +1,39 @@
 <h2>Lists</h2>
-<<<<<<< HEAD
-
-
 
 <div class='row'>
-<% if @lists.any? %>
-  <% @lists.each do |list| %>
+	<% if @lists.any? %>
+	  <% @lists.each do |list| %>
 
-		<div class="card col-md-4">
+			<div class="card col-md-4">
 
-	  	<%= image_tag list.image.url(:cover), class: 'card-img-top' %>
-		  <div class="card-block">
+		  	<%= image_tag list.image.url(:cover), class: 'card-img-top' %>
+			  <div class="card-block">
 
-		    <h4 class="card-title"><%= link_to list.title, list_path(list) %></h4>
-		    <p class="card-text"><%= list.description %></p>
+			    <h4 class="card-title"><%= list.title %></h4>
+			    <p class="card-text"><%= list.description %></p>
 
 
-		    <%= link_to 'View', list_path(list), class: "btn btn-primary" %>
-		  </div>
-
-		</div>      
-<% end %>
-<% else %>
-  <h3>No Lists, please add one!</h3>
-<% end %>
-
+			    <%= link_to 'View', list_path(list), class: "btn btn-primary" %>
+			  </div>
+			</div>      
+		<% end %>
+	<% else %>
+	  <h3>No Lists, please add one!</h3>
+	<% end %>
 </div>
+
 
 <div class='container-fluid text-center'>
 	<%= will_paginate @lists %>
 	<br />
-	<%= link_to 'Edit Profile', edit_user_registration_path %>|
-
-
-	<%= link_to 'Add List', new_list_path %> |
-
-	<%= link_to 'Back', root_path %>
+	<%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary" %> |
+	<%= link_to 'Add List', new_list_path,  class: "btn btn-primary" %> |
+	<%= link_to 'Back', root_path,  class: "btn btn-primary" %>
 </div>
+
+<br />
+
+
+
 
 

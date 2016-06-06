@@ -51,19 +51,13 @@
 
 <%= render 'comments/form' %>
   
-<hr>
-
 <% if current_user.id == @list.user_id %>
 
-  <%= link_to 'Add Item', new_list_item_path(@list, @item) %> |
-
-  <%= link_to 'Edit List', edit_list_path(@list) %> |
-
-  <%= link_to 'Delete List', list_path, method: :delete, data: {confirm: 'You sure you want to delete?'} %>
-
-
+<hr>
+<% if current_user.id == @list.user_id %>
+  <%= link_to 'Add Item', new_list_item_path(@list, @item), class: "btn btn-primary" %> |
+  <%= link_to 'Edit List', edit_list_path(@list), class: "btn btn-primary" %> |
+  <%= link_to 'Delete List', list_path, method: :delete, data: {confirm: 'You sure you want to delete?'}, class: "btn btn-primary" %>
 <% end %>
 
-<br>
 
-<%= link_to 'Back', lists_path %>
