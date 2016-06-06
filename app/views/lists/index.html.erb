@@ -1,5 +1,5 @@
 <h2>Lists</h2>
-
+<div class='container-fluid'>
 <% if @lists.any? %>
   <% @lists.each do |list| %>
 
@@ -8,10 +8,10 @@
 	  	<%= image_tag list.image.url(:medium), class: 'card-img-top' %>
 		  <div class="card-block">
 
-		    <h4 class="card-title"><%= link_to list.title, list_path(list) %></h4>
-		    <p class="card-text"><%= link_to list.description, list_path(list) %></p>
+		    <h4 class="card-title"><%= list.title %></h4>
+		    <p class="card-text"><%= list.description %></p>
 
-		    <a href="" class="btn btn-primary">View</a>
+		    <%= link_to 'View', list_path(list), class: "btn btn-primary" %>
 		  </div>
 
 		</div>      
@@ -19,12 +19,13 @@
 <% else %>
   <h3>No Lists, please add one!</h3>
 <% end %>
+</div>
+
+<br />
 
 
+<%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary" %> |
+<%= link_to 'Add List', new_list_path,  class: "btn btn-primary" %> |
+<%= link_to 'Back', root_path,  class: "btn btn-primary" %>
 
-<%= link_to 'Edit Profile', edit_user_registration_path %> |
-
-<%= link_to 'Add List', new_list_path %> |
-
-<%= link_to 'Back', root_path %>
 
