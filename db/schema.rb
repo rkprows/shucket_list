@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20160606205117) do
     t.text     "content"
     t.integer  "commentable_id"
     t.string   "commentable_type"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "list_id"
   end
 
