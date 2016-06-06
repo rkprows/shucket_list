@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20160606205117) do
     t.integer  "list_id"
   end
 
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "description"

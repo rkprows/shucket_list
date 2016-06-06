@@ -11,7 +11,7 @@
         <ul>
           <li>
             <%= link_to item.name, list_item_path(@list, item) %><br>
-          	<%= image_tag item.image.url(:medium) %>
+            <%= image_tag item.image.url(:medium) %>
           </li>
        </ul>
       <% end %>
@@ -61,10 +61,9 @@
 
   <%= link_to 'Delete List', list_path, method: :delete, data: {confirm: 'You sure you want to delete?'} %>
 
+
 <% end %>
 
-<br>
-<br>
 <br>
 
 <%= link_to 'Back', lists_path %>
