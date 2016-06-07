@@ -7,4 +7,24 @@ class List < ActiveRecord::Base
 
  	has_many :comments, as: :commentable
 
+ 	def self.by_title
+		order(:title)
+	end
+
+	def self.by_category
+		order(:category)
+	end
+
+	def self.by_description(high = false)
+		if high
+			order(description: :desc)
+		else
+			order(:description)
+		end
+	end
+
+	def occasion(category)
+		self.update(category: category)
+	end
+
 end
